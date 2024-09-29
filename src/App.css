@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Latin Modern Mono Prop Light";
+  src: url("./fonts/LatinModernMonoPropLight.otf") format("opentype"); /* Adjust file extension */
+  font-weight: normal;
+  font-style: normal;
+}
+
 .App {
   text-align: center;
 }
