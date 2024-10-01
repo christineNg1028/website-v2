@@ -1,13 +1,18 @@
+import { TextLink } from "../components/design system/TextLink";
 import { Typewriter } from "../components/Typewriter";
+import { Links } from "../Links";
 
 export const AboutMe = () => {
   return (
     <div className="flex flex-col items-center">
       <Typewriter />
       <div className="text-lg text-left">
-        I’m a full-stack software engineer currently studying Systems Design
-        Engineering at the University of Waterloo, passionate about user
-        experience and community building.
+        I’m a full-stack software engineer currently studying{" "}
+        <TextLink to={Links.get("Systems Design Engineering") ?? ""}>
+          Systems Design Engineering
+        </TextLink>{" "}
+        at the University of Waterloo, passionate about user experience and
+        community building.
       </div>
     </div>
   );

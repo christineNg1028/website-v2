@@ -3,6 +3,8 @@ import "./App.css";
 import { useTheme } from "./ThemeProvider";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { AboutMe } from "./sections/AboutMe";
+import { SoftwareProjects } from "./sections/SoftwareProjects";
+import { Divider } from "./components/design system/Divider";
 
 function App() {
   const { darkMode } = useTheme();
@@ -14,11 +16,10 @@ function App() {
       } flex flex-col items-center min-h-screen`}
     >
       <ThemeToggle />
-      <div className="flex flex-col items-center max-w-2xl py-10 gap-12">
+      <div className="flex flex-col max-w-2xl py-10 gap-12">
         <AboutMe />
-        <hr
-          className={`w-full ${darkMode ? "border-white" : "border-[#333333]"}`}
-        />
+        <Divider darkMode={darkMode} />
+        <SoftwareProjects />
       </div>
     </div>
   );
