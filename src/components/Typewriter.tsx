@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ReactComponent as TypewriterSVG } from "../assets/typewriter-light.svg";
-import { ReactComponent as PaperSVG } from "../assets/paper.svg";
+import { ReactComponent as TypewriterSVG } from "../assets/graphics/typewriter.svg";
+import { ReactComponent as PaperSVG } from "../assets/graphics/paper.svg";
+import { useTheme } from "../ThemeProvider"; // Assume this hook exists
 
 export const Typewriter: React.FC = () => {
   const [text, setText] = useState("");
   const [paperHeight, setPaperHeight] = useState(0);
   const fullText = "Hi! :)\nI'm Christine";
   const paperRef = useRef<SVGSVGElement>(null);
+  const typewriterRef = useRef<SVGSVGElement>(null);
+  const { darkMode } = useTheme(); // Assume this hook provides darkMode
 
   useEffect(() => {
     let index = 0;
@@ -34,9 +37,33 @@ export const Typewriter: React.FC = () => {
     }
   }, [paperHeight]);
 
+  useEffect(() => {
+    const color = darkMode ? "white" : "#333333";
+
+    // Update paper color
+    const paperElement = paperRef.current;
+    if (paperElement) {
+      const paths = paperElement.querySelectorAll("path");
+      paths.forEach((path) => {
+        path.setAttribute("stroke", color);
+        path.setAttribute("fill", color);
+      });
+    }
+
+    // Update typewriter color
+    const typewriterElement = typewriterRef.current;
+    if (typewriterElement) {
+      const paths = typewriterElement.querySelectorAll("path");
+      paths.forEach((path) => {
+        path.setAttribute("stroke", color);
+      });
+    }
+  }, [darkMode]);
+
   return (
     <div className="relative w-[486px] h-[450px]">
       <TypewriterSVG
+        ref={typewriterRef}
         className="w-full h-full absolute top-0 left-0 z-10"
         style={{
           transform: "scale(0.8)",
@@ -52,7 +79,9 @@ export const Typewriter: React.FC = () => {
       >
         <PaperSVG ref={paperRef} className="w-full h-full" />
         <div
-          className="absolute top-6 left-[24px] w-[331px] text-[#333333] font-semibold text-2xl font-mono whitespace-pre-line"
+          className={`absolute top-6 left-[24px] w-[331px] font-semibold text-2xl font-mono whitespace-pre-line ${
+            darkMode ? "text-[#333333]" : "text-[#FFFAF4]"
+          }`}
           style={{ transform: `translateY(${148 - paperHeight}px)` }}
         >
           {text}
