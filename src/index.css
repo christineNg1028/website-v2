@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  font-family: "Latin Modern Mono Prop Light";
+  font-family: "Latin Modern Mono Prop Light", "Latin Modern Mono";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
