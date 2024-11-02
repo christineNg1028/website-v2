@@ -3,7 +3,7 @@ import "./App.css";
 import { useTheme } from "./ThemeProvider";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { AboutMe } from "./sections/AboutMe";
-import { SoftwareProjects } from "./sections/SoftwareProjects";
+import { SoftwareProjects } from "./sections/projects/SoftwareProjects";
 import { Divider } from "./components/design system/Divider";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
       } flex flex-col items-center min-h-screen`}
     >
       <ThemeToggle />
-      <div className="flex flex-col max-w-2xl py-10 gap-12">
+      <div className="flex flex-col max-w-3xl py-10 gap-12">
         <AboutMe />
         <Divider darkMode={darkMode} />
         <SoftwareProjects />
