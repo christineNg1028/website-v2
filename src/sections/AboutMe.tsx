@@ -6,7 +6,7 @@ export const AboutMe = () => {
   return (
     <div className="flex flex-col items-center">
       <Typewriter />
-      <div className="text-lg text-left">
+      <div className="text-xl text-left">
         I’m a full-stack software engineer currently studying{" "}
         <TextLink to={Links.get("Systems Design Engineering") ?? ""}>
           Systems Design Engineering

@@ -1,19 +1,50 @@
-import React, { createContext, useState, useContext, ReactNode } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 
-type ThemeContextType = {
+interface ThemeContextType {
   darkMode: boolean;
   toggleDarkMode: () => void;
-};
+}
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
+export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(() => {
+    // Check if window is defined (i.e., if we're in the browser)
+    if (typeof window !== "undefined") {
+      // Check for saved user preference, if any
+      const savedMode = localStorage.getItem("darkMode");
+      if (savedMode !== null) {
+        return JSON.parse(savedMode);
+      }
+      // If no saved preference, use system preference
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+    // Default to false if not in browser
+    return false;
+  });
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = () => {
+      setDarkMode(mediaQuery.matches);
+    };
+
+    // Add listener for changes in system color scheme
+    mediaQuery.addListener(handleChange);
+
+    // Clean up listener
+    return () => mediaQuery.removeListener(handleChange);
+  }, []);
+
+  useEffect(() => {
+    // Save user preference to localStorage
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+    setDarkMode((prevMode: boolean) => !prevMode);
   };
 
   return (

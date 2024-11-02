@@ -5,17 +5,17 @@ import { useTheme } from "../ThemeProvider"; // Assume this hook exists
 
 export const Typewriter: React.FC = () => {
   const [text, setText] = useState("");
-  const [paperHeight, setPaperHeight] = useState(0);
+  const [paperPosition, setPaperPosition] = useState(80);
   const fullText = "Hi! :)\nI'm Christine";
   const paperRef = useRef<SVGSVGElement>(null);
   const typewriterRef = useRef<SVGSVGElement>(null);
-  const { darkMode } = useTheme(); // Assume this hook provides darkMode
+  const { darkMode } = useTheme();
 
   useEffect(() => {
     let index = 0;
     const intervalId = setInterval(() => {
       setText(fullText.slice(0, index));
-      setPaperHeight((index / fullText.length) * 148); // 148 is the full height of the paper
+      setPaperPosition(80 - (index / fullText.length) * 80); // Move paper upwards
       index++;
       if (index > fullText.length) {
         clearInterval(intervalId);
@@ -26,28 +26,16 @@ export const Typewriter: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (paperRef.current) {
-      const paperElement = paperRef.current.getElementById("paper");
-      if (paperElement) {
-        paperElement.setAttribute(
-          "d",
-          `M0 148 H379 V${148 - paperHeight} H0 V148 Z`
-        );
-      }
-    }
-  }, [paperHeight]);
-
-  useEffect(() => {
-    const color = darkMode ? "white" : "#333333";
+    const strokeColor = darkMode ? "white" : "#333333";
+    const fillColor = darkMode ? "#333333" : "#FFFAF4";
 
     // Update paper color
     const paperElement = paperRef.current;
     if (paperElement) {
-      const paths = paperElement.querySelectorAll("path");
-      paths.forEach((path) => {
-        path.setAttribute("stroke", color);
-        path.setAttribute("fill", color);
-      });
+      const rect = paperElement.querySelector("rect");
+      if (rect) {
+        rect.setAttribute("stroke", strokeColor);
+      }
     }
 
     // Update typewriter color
@@ -55,7 +43,8 @@ export const Typewriter: React.FC = () => {
     if (typewriterElement) {
       const paths = typewriterElement.querySelectorAll("path");
       paths.forEach((path) => {
-        path.setAttribute("stroke", color);
+        path.setAttribute("stroke", strokeColor);
+        path.setAttribute("fill", fillColor);
       });
     }
   }, [darkMode]);
@@ -77,14 +66,20 @@ export const Typewriter: React.FC = () => {
           height: `${148}px`,
         }}
       >
-        <PaperSVG ref={paperRef} className="w-full h-full" />
         <div
-          className={`absolute top-6 left-[24px] w-[331px] font-semibold text-2xl font-mono whitespace-pre-line ${
-            darkMode ? "text-[#333333]" : "text-[#FFFAF4]"
-          }`}
-          style={{ transform: `translateY(${148 - paperHeight}px)` }}
+          className="relative"
+          style={{
+            transform: `translateY(${paperPosition}px)`,
+          }}
         >
-          {text}
+          <PaperSVG ref={paperRef} className="w-full h-[148px]" />
+          <div
+            className={`absolute top-6 left-[24px] w-[331px] font-semibold text-2xl font-mono whitespace-pre-line ${
+              darkMode ? "text-white" : "text-[#333333]"
+            }`}
+          >
+            {text}
+          </div>
         </div>
       </div>
     </div>
