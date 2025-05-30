@@ -7,7 +7,7 @@ export const SoftwareProjects = () => {
       <span className="text-2xl">Software projects</span>
       <div className="flex flex-col gap-6">
         {Object.values(projects).map(({ name, img, description }) => (
-          <Card img={img}>
+          <Card img={img} className="h-[210px] overflow-hidden">
             <div className="h-full flex flex-col justify-between text-xl">
               <span>{name}</span>
               <div>{description}</div>

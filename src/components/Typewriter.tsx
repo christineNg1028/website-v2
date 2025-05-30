@@ -5,7 +5,7 @@ import { useTheme } from "../ThemeProvider"; // Assume this hook exists
 
 export const Typewriter: React.FC = () => {
   const [text, setText] = useState("");
-  const [paperPosition, setPaperPosition] = useState(80);
+  const [paperPosition, setPaperPosition] = useState(110);
   const fullText = "Hi! :)\nI'm Christine";
   const paperRef = useRef<SVGSVGElement>(null);
   const typewriterRef = useRef<SVGSVGElement>(null);
@@ -15,7 +15,7 @@ export const Typewriter: React.FC = () => {
     let index = 0;
     const intervalId = setInterval(() => {
       setText(fullText.slice(0, index));
-      setPaperPosition(80 - (index / fullText.length) * 80); // Move paper upwards
+      setPaperPosition(110 - (index / fullText.length) * 80); // Move paper upwards
       index++;
       if (index > fullText.length) {
         clearInterval(intervalId);
@@ -27,7 +27,7 @@ export const Typewriter: React.FC = () => {
 
   useEffect(() => {
     const strokeColor = darkMode ? "white" : "#333333";
-    const fillColor = darkMode ? "#333333" : "#FFFAF4";
+    const fillColor = darkMode ? "#333333" : "white";
 
     // Update paper color
     const paperElement = paperRef.current;
@@ -60,7 +60,7 @@ export const Typewriter: React.FC = () => {
         }}
       />
       <div
-        className="absolute left-[53.5px] w-[379px] transition-all duration-100 ease-linear overflow-hidden"
+        className="absolute left-[64px] w-[379px] transition-all duration-100 ease-linear overflow-hidden"
         style={{
           top: `${31}px`,
           height: `${148}px`,
