@@ -12,7 +12,7 @@ export const AboutMe = () => {
           Systems Design Engineering
         </TextLink>{" "}
         at the University of Waterloo, passionate about user experience and
-        community building.
+        community building. 🌱
       </div>
     </div>
   );

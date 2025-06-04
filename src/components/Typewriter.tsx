@@ -63,7 +63,7 @@ export const Typewriter: React.FC = () => {
         className="absolute left-[64px] w-[379px] transition-all duration-100 ease-linear overflow-hidden"
         style={{
           top: `${31}px`,
-          height: `${148}px`,
+          height: `${150}px`,
         }}
       >
         <div
@@ -72,7 +72,7 @@ export const Typewriter: React.FC = () => {
             transform: `translateY(${paperPosition}px)`,
           }}
         >
-          <PaperSVG ref={paperRef} className="w-full h-[148px]" />
+          <PaperSVG ref={paperRef} className="w-full h-[150px]" />
           <div
             className={`absolute top-6 left-[24px] w-[331px] font-semibold text-2xl font-mono whitespace-pre-line ${
               darkMode ? "text-white" : "text-[#333333]"

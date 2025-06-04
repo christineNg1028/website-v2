@@ -13,10 +13,10 @@ function App() {
     <div
       className={`App ${
         darkMode ? "dark" : ""
-      } flex flex-col items-center min-h-screen`}
+      } flex flex-col items-center min-h-screen w-full overflow-x-hidden`}
     >
       <ThemeToggle />
-      <div className="flex flex-col max-w-4xl py-10 gap-12">
+      <div className="flex flex-col w-full max-w-4xl px-4 py-10 gap-12">
         <AboutMe />
         <Divider darkMode={darkMode} />
         <SoftwareProjects />

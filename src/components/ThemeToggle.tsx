@@ -8,7 +8,7 @@ export const ThemeToggle = () => {
   return (
     <button
       onClick={toggleDarkMode}
-      className={`fixed top-4 right-4 border-2 rounded-full border-dotted w-12 h-12 flex items-center justify-center transition-shadow duration-300 hover:shadow-[0_0_10px_rgba(0,0,0,0.3)] ${
+      className={`z-50 fixed top-4 right-4 border-2 rounded-full border-dotted w-12 h-12 flex items-center justify-center transition-shadow duration-300 hover:shadow-[0_0_10px_rgba(0,0,0,0.3)] ${
         darkMode
           ? "border-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)]"
           : "border-[rgba(0,0,0,0.8)] hover:shadow-[0_0_10px_rgba(0,0,0,0.5)]"

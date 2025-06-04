@@ -13,14 +13,14 @@ export const Card: FC<{
 
   return (
     <div
-      className={`border-2 border-dotted rounded-xl transition-shadow duration-300 hover:shadow-[0_0_10px_rgba(0,0,0,0.3)] ${borderColor} ${className}`}
+      className={`border-2 border-dotted rounded-xl overflow-hidden transition-shadow duration-300 hover:shadow-[0_0_10px_rgba(0,0,0,0.3)] ${borderColor} ${className}`}
     >
       {!!img ? (
-        <div className="grid grid-cols-10">
-          <div className="col-span-4">
+        <div className="grid grid-cols-10 h-full">
+          <div className="col-span-4 overflow-hidden">
             <img
               src={img}
-              className={`rounded-tl-xl rounded-bl-xl border-r ${
+              className={`h-full w-full object-cover object-[0%_0%] border-r rounded-tl-xl rounded-bl-xl ${
                 darkMode ? "border-white" : "border-[rgba(0,0,0,0.8)]"
               }`}
             />
