@@ -2,9 +2,9 @@ import React from "react";
 import "./App.css";
 import { useTheme } from "./ThemeProvider";
 import { ThemeToggle } from "./components/ThemeToggle";
-import { AboutMe } from "./sections/AboutMe";
-import { SoftwareProjects } from "./sections/projects/SoftwareProjects";
-import { Divider } from "./components/design system/Divider";
+import Home from "./pages/home/Home";
+import { Route, Routes } from "react-router";
+import Project from "./pages/project/Project";
 
 function App() {
   const { darkMode } = useTheme();
@@ -16,11 +16,10 @@ function App() {
       } flex flex-col items-center min-h-screen w-full overflow-x-hidden`}
     >
       <ThemeToggle />
-      <div className="flex flex-col w-full max-w-4xl px-4 py-10 gap-12">
-        <AboutMe />
-        <Divider darkMode={darkMode} />
-        <SoftwareProjects />
-      </div>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path=":project" element={<Project />} />
+      </Routes>
     </div>
   );
 }

@@ -1,6 +1,6 @@
-import { TextLink } from "../components/design system/TextLink";
-import { Typewriter } from "../components/Typewriter";
-import { Links } from "../Links";
+import { TextLink } from "../../components/design system/TextLink";
+import { Typewriter } from "../../components/Typewriter";
+import { Links } from "../../Links";
 
 export const AboutMe = () => {
   return (

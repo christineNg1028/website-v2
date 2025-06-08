@@ -1,7 +1,7 @@
 import { Card } from "../../components/design system/Card";
 import { Chip } from "../../components/design system/Chip";
 import { useTheme } from "../../ThemeProvider";
-import { projects } from "./projects";
+import { projects } from "../shared/projects";
 
 export const SoftwareProjects = () => {
   const { darkMode } = useTheme();
