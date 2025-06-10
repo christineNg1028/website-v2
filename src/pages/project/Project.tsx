@@ -1,11 +1,77 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../App.css";
 import { useTheme } from "../../ThemeProvider";
+import { useNavigate, useParams } from "react-router";
+import { projects } from "../shared/projects";
+import { BackButton } from "../../components/design system/BackButton";
+import { HoverImageLink } from "../../components/design system/HoverLink";
+import { Frec } from "./Frec";
 
 function Project() {
   const { darkMode } = useTheme();
+  const { project } = useParams();
+  const navigate = useNavigate();
 
-  return <div>hi</div>;
+  useEffect(() => {
+    if (!project || !(project in projects)) {
+      navigate("/", { replace: true });
+    }
+  }, [project, navigate]);
+
+  if (!project || !(project in projects)) return null;
+
+  const currentProject = projects[project];
+
+  const formatDateRange = (startDate: Date, endDate: Date) => {
+    const month = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    const startMonth = month[startDate.getUTCMonth()];
+    const startYear = startDate.getUTCFullYear();
+    const endMonth = month[endDate.getUTCMonth()];
+    const endYear = endDate.getUTCFullYear();
+    return `${startMonth} ${
+      startYear === endYear ? "" : startYear
+    } - ${endMonth} ${endYear}`;
+  };
+
+  return (
+    <div className="flex flex-col w-full max-w-4xl px-4 py-10 gap-12 text-left text-xl">
+      <BackButton />
+      <img
+        src={currentProject.img}
+        className={"h-full w-full object-cover object-[0%_0%] rounded-xl"}
+      />
+      <div className="flex flex-col gap-6">
+        <div className="flex justify-between">
+          <HoverImageLink to={currentProject.link}>
+            <img
+              src={currentProject.logo}
+              alt={currentProject.name}
+              className="h-10 block"
+            />
+          </HoverImageLink>
+          {formatDateRange(currentProject.startDate, currentProject.endDate)}
+        </div>
+        <div>
+          <span className="font-semibold">Skills: </span>
+          <span>{currentProject.skills.join(", ")}</span>
+        </div>
+        <Frec />
+      </div>
+    </div>
+  );
 }
 
 export default Project;

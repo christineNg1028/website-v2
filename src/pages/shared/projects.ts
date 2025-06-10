@@ -14,6 +14,7 @@ type Project = {
   endDate: Date;
   skills: string[];
   tags: ProjectTag[];
+  link: string;
 };
 
 enum ProjectTag {
@@ -36,6 +37,7 @@ export const projects: Record<string, Project> = {
     endDate: new Date("2024-09-01"),
     skills: ["React", "TypeScript", "GraphQL", "PostgreSQL"],
     tags: [ProjectTag.Frontend, ProjectTag.Design],
+    link: "https://frec.com/",
   },
   outschool: {
     name: "Outschool",
@@ -47,6 +49,7 @@ export const projects: Record<string, Project> = {
     endDate: new Date("2023-12-01"),
     skills: ["React", "TypeScript", "GraphQL", "PostgreSQL"],
     tags: [ProjectTag.Frontend, ProjectTag.UxResearch],
+    link: "https://outschool.com/",
   },
   wonolo: {
     name: "Wonolo",
@@ -58,6 +61,7 @@ export const projects: Record<string, Project> = {
     endDate: new Date("2023-04-01"),
     skills: ["Ruby on Rails", "PostgreSQL"],
     tags: [ProjectTag.Backend],
+    link: "https://www.wonolo.com/",
   },
   wealthsimpleCash: {
     name: "Frec Direct Indexing",
@@ -69,6 +73,7 @@ export const projects: Record<string, Project> = {
     endDate: new Date("2022-08-01"),
     skills: ["Ruby on Rails", "REST", "GraphQL", "PostgreSQL"],
     tags: [ProjectTag.Backend, ProjectTag.Product],
+    link: "https://www.wealthsimple.com/en-ca/chequing",
   },
   wealthsimpleTax: {
     name: "Frec Direct Indexing",
@@ -80,5 +85,6 @@ export const projects: Record<string, Project> = {
     endDate: new Date("2021-12-01"),
     skills: ["React", "TypeScript", "Redux"],
     tags: [ProjectTag.FullStack],
+    link: "https://www.wealthsimple.com/en-ca/tax",
   },
 };

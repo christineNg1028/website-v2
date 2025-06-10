@@ -4,16 +4,21 @@ import { useTheme } from "../../ThemeProvider";
 export const Card: FC<{
   children: ReactNode;
   img?: string;
+  onClick?: () => void;
   className?: string;
-}> = ({ img, children, className }) => {
+}> = ({ img, onClick, children, className }) => {
   const { darkMode } = useTheme();
-  const borderColor = darkMode
-    ? "border-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)]"
-    : "border-[rgba(0,0,0,0.8)] hover:shadow-[0_0_10px_rgba(0,0,0,0.5)]";
+  const borderColor = darkMode ? "border-white" : "border-[rgba(0,0,0,0.8)]";
+  const onClickStyles = !!onClick
+    ? darkMode
+      ? "hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] cursor-pointer"
+      : "hover:shadow-[0_0_10px_rgba(0,0,0,0.5)] cursor-pointer"
+    : "";
 
   return (
     <div
-      className={`border-2 border-dotted rounded-xl overflow-hidden transition-shadow duration-300 hover:shadow-[0_0_10px_rgba(0,0,0,0.3)] ${borderColor} ${className}`}
+      className={`border-2 border-dotted rounded-xl overflow-hidden transition-shadow duration-300 ${borderColor} ${onClickStyles} ${className}`}
+      onClick={onClick}
     >
       {!!img ? (
         <div className="grid grid-cols-10 h-full">

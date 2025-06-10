@@ -1,9 +1,11 @@
 import { FC, ReactNode } from "react";
+import { useTheme } from "../../ThemeProvider";
 
 export const Chip: FC<{
   children: ReactNode;
-  darkMode: boolean;
-}> = ({ children, darkMode }) => {
+}> = ({ children }) => {
+  const { darkMode } = useTheme();
+
   return (
     <div
       className={`${
