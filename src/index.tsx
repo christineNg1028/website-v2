@@ -4,7 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "./ThemeProvider";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter } from "react-router";
+import { ScrollToTop } from "./ScrollToTop";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -13,6 +14,7 @@ root.render(
   <React.StrictMode>
     <ThemeProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <App />
       </BrowserRouter>
     </ThemeProvider>
