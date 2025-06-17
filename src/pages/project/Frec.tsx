@@ -1,12 +1,12 @@
 import { Divider } from "../../components/design system/Divider";
 import { OrderedList } from "../../components/design system/OrderedList";
-import { useTheme } from "../../ThemeProvider";
-import indexExplorerImage from "../../assets/images/projects/frec/indexExplorer.png";
+import InvestPage from "../../assets/images/projects/frec/invest_page.png";
+import InvestPageSearch from "../../assets/images/projects/frec/invest_page_search.png";
+import PortfolioAnalysis from "../../assets/images/projects/frec/portfolio_analysis.png";
 import { Banner } from "../../components/design system/Banner";
+import { ImageCarousel } from "../../components/design system/ImageCarousel";
 
 export const Frec = () => {
-  const { darkMode } = useTheme();
-
   const problemsList = [
     "The entry point for setting up a direct index wasn’t super clear — you had to navigate to the home screen and enter the flow from there. A centralized entry point would make more sense.",
     "Users couldn’t easily explore or compare indices before setting one up — they had to enter the setup flow first to see any details.",
@@ -19,6 +19,19 @@ export const Frec = () => {
     "Added search functionality for both direct indices and stocks.",
     "Created dedicated info pages for each direct index — allowing users to learn about them (eventually even when logged out) and start the setup flow from there.",
     "Deprecated the old Trade flow and built new screens for buying and selling stocks.",
+  ];
+
+  const indexExplorerImages = [
+    { src: InvestPage, caption: "New Invest page" },
+    { src: InvestPageSearch, caption: "Invest page search" },
+  ];
+
+  const portfolioAnalysisImages = [
+    {
+      src: PortfolioAnalysis,
+      caption:
+        "Mockup of the landing page users see after finishing portfolio analysis setup",
+    },
   ];
 
   return (
@@ -44,7 +57,9 @@ export const Frec = () => {
       <Divider />
       <div className="flex flex-col gap-10">
         <span className="text-2xl">Index Explorer 🫵</span>
-        <Banner icon={"✨"}>Drove $100M in AUM growth</Banner>
+        <Banner icon={"✨"}>
+          Drove $100M in Assets Under Management (AUM) growth
+        </Banner>
         <div className="flex flex-col gap-6">
           <div>
             Index Explorer was a major feature project aimed at reworking how
@@ -56,7 +71,7 @@ export const Frec = () => {
           <div>There were a few problems with this setup:</div>
           <OrderedList items={problemsList} />
         </div>
-        <img src={indexExplorerImage} />
+        <ImageCarousel images={indexExplorerImages} />
         <div className="flex flex-col gap-6">
           <div>To address these issues, we:</div>
           <OrderedList items={solutionsList} />
@@ -90,6 +105,32 @@ export const Frec = () => {
         </div>
       </div>
       <Divider />
+      <div className="flex flex-col gap-10">
+        <span className="text-2xl">Portfolio Analysis 📁</span>
+        <div className="flex flex-col gap-6">
+          <div>
+            Portfolio Analysis was a project designed to give new Frec users a
+            chance to compare their current portfolio with what Frec could
+            offer—specifically, how much they could save in fees if they
+            switched. It also aimed to introduce users to the platform and
+            encourage them to schedule a call with our advisors before fully
+            onboarding. The main goal was to improve conversion from other
+            investment platforms like Charles Schwab and Fidelity.
+          </div>
+          <div>
+            The feature followed a setup flow similar to our main onboarding,
+            but focused on collecting a user’s existing portfolio and scheduling
+            a call, without requiring the full onboarding information upfront.
+          </div>
+          <div>
+            I led this project, working on the initial designs and building out
+            the frontend skeleton for the setup screens. Key learnings included
+            accounting for edge cases in my designs and designing with business
+            goals and priorities in mind.
+          </div>
+        </div>
+        <ImageCarousel images={portfolioAnalysisImages} />
+      </div>
     </div>
   );
 };
