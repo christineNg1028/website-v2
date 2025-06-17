@@ -10,7 +10,7 @@ export const ScrollToTop = () => {
       // Only scroll to top on forward navigation (not back)
       window.scrollTo(0, 0);
     }
-  }, [location]);
+  }, [location, navigationType]);
 
   return null;
 };

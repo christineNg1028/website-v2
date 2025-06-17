@@ -4,9 +4,10 @@ import { useTheme } from "../../ThemeProvider";
 export const Card: FC<{
   children: ReactNode;
   img?: string;
+  alt?: string;
   onClick?: () => void;
   className?: string;
-}> = ({ img, onClick, children, className }) => {
+}> = ({ img, alt, onClick, children, className }) => {
   const { darkMode } = useTheme();
   const borderColor = darkMode ? "border-white" : "border-[rgba(0,0,0,0.8)]";
   const onClickStyles = !!onClick
@@ -25,7 +26,8 @@ export const Card: FC<{
           <div className="col-span-4 overflow-hidden">
             <img
               src={img}
-              className={`h-full w-full object-cover object-[0%_0%] border-r rounded-tl-xl rounded-bl-xl ${
+              alt={alt}
+              className={`h-full w-full object-cover object-top border-r rounded-tl-xl rounded-bl-xl ${
                 darkMode ? "border-white" : "border-[rgba(0,0,0,0.8)]"
               }`}
             />

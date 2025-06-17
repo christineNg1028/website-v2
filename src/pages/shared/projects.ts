@@ -1,13 +1,22 @@
 import frecImage from "../../assets/images/projects/frec/frec.png";
-import frecLogo from "../../assets/graphics/logos/frec.svg";
+import frecLogoLight from "../../assets/graphics/logos/frec-light.svg";
+import frecLogoDark from "../../assets/graphics/logos/frec-dark.svg";
 import outschoolImage from "../../assets/images/projects/outschool/outschool.png";
 import outschoolLogo from "../../assets/graphics/logos/outschool.svg";
 import wonoloImage from "../../assets/images/projects/wonolo/wonolo.png";
-import wonoloLogo from "../../assets/graphics/logos/wonolo.svg";
+import wonoloLogoLight from "../../assets/graphics/logos/wonolo-light.svg";
+import wonoloLogoDark from "../../assets/graphics/logos/wonolo-dark.svg";
+import wealthsimpleChequingImage from "../../assets/images/projects/wealthsimple cash/wealthsimple_chequing.png";
+import wealthsimpleLogoLight from "../../assets/graphics/logos/wealthsimple-light.svg";
+import wealthsimpleLogoDark from "../../assets/graphics/logos/wealthsimple-dark.svg";
+import wealthsimpleTaxImage from "../../assets/images/projects/wealthsimple tax/wealthsimple_tax.jpeg";
+
+import { Frec } from "../project/Frec";
 
 type Project = {
   name: string;
-  logo?: string;
+  logoLight?: string;
+  logoDark?: string;
   img: string;
   description: string;
   startDate: Date;
@@ -15,6 +24,7 @@ type Project = {
   skills: string[];
   tags: ProjectTag[];
   link: string;
+  pageContent?: () => JSX.Element;
 };
 
 enum ProjectTag {
@@ -29,7 +39,8 @@ enum ProjectTag {
 export const projects: Record<string, Project> = {
   frec: {
     name: "Frec Direct Indexing",
-    logo: frecLogo,
+    logoLight: frecLogoLight,
+    logoDark: frecLogoDark,
     img: frecImage,
     description:
       "Drove $100M in AUM growth through ownership of the frontend development for a new investment search feature.",
@@ -38,10 +49,12 @@ export const projects: Record<string, Project> = {
     skills: ["React", "TypeScript", "GraphQL", "PostgreSQL"],
     tags: [ProjectTag.Frontend, ProjectTag.Design],
     link: "https://frec.com/",
+    pageContent: Frec,
   },
   outschool: {
     name: "Outschool",
-    logo: outschoolLogo,
+    logoLight: outschoolLogo,
+    logoDark: outschoolLogo,
     img: outschoolImage,
     description:
       "Boosted recurring 1:1 tutoring enrollments from 24% to 32% by implementing and user testing retention features.",
@@ -53,7 +66,8 @@ export const projects: Record<string, Project> = {
   },
   wonolo: {
     name: "Wonolo",
-    logo: wonoloLogo,
+    logoLight: wonoloLogoLight,
+    logoDark: wonoloLogoDark,
     img: wonoloImage,
     description:
       "Enhanced system scalability by reducing background job deployments by 50% with a new scheduling pattern.",
@@ -64,9 +78,10 @@ export const projects: Record<string, Project> = {
     link: "https://www.wonolo.com/",
   },
   wealthsimpleCash: {
-    name: "Frec Direct Indexing",
-    logo: frecLogo,
-    img: frecImage,
+    name: "Wealthsimple Cash",
+    logoLight: wealthsimpleLogoLight,
+    logoDark: wealthsimpleLogoDark,
+    img: wealthsimpleChequingImage,
     description:
       "Increased account deposits by 25% by designing and developing a scalable and secure e-Transfer backend.",
     startDate: new Date("2022-05-01"),
@@ -76,9 +91,10 @@ export const projects: Record<string, Project> = {
     link: "https://www.wealthsimple.com/en-ca/chequing",
   },
   wealthsimpleTax: {
-    name: "Frec Direct Indexing",
-    logo: frecLogo,
-    img: frecImage,
+    name: "Wealthsimple Tax",
+    logoLight: wealthsimpleLogoLight,
+    logoDark: wealthsimpleLogoDark,
+    img: wealthsimpleTaxImage,
     description:
       "Improved first-time tax filer conversion from 50-55% to 60% by revamping the onboarding flow with a state machine pattern, benefiting 1.3 million clients during the 2022 tax season.",
     startDate: new Date("2021-09-01"),

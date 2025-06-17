@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC } from "react";
 
 export const TextLink: FC<{ children: string; to: string }> = ({
   children,
@@ -8,6 +8,7 @@ export const TextLink: FC<{ children: string; to: string }> = ({
     <a
       href={to}
       target="_blank"
+      rel="noreferrer"
       className="relative underline underline-offset-8 decoration-dotted"
     >
       {/* Hover text */}

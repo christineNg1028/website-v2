@@ -4,8 +4,10 @@ import { useTheme } from "../../ThemeProvider";
 import { useNavigate, useParams } from "react-router";
 import { projects } from "../shared/projects";
 import { BackButton } from "../../components/design system/BackButton";
-import { HoverImageLink } from "../../components/design system/HoverLink";
-import { Frec } from "./Frec";
+import {
+  HoverImageLink,
+  HoverTextLink,
+} from "../../components/design system/HoverLink";
 
 function Project() {
   const { darkMode } = useTheme();
@@ -51,24 +53,33 @@ function Project() {
       <BackButton />
       <img
         src={currentProject.img}
+        alt={currentProject.name}
         className={"h-full w-full object-cover object-[0%_0%] rounded-xl"}
       />
       <div className="flex flex-col gap-6">
         <div className="flex justify-between">
-          <HoverImageLink to={currentProject.link}>
-            <img
-              src={currentProject.logo}
-              alt={currentProject.name}
-              className="h-10 block"
-            />
-          </HoverImageLink>
+          {currentProject.logoLight && currentProject.logoDark ? (
+            <HoverImageLink to={currentProject.link}>
+              <img
+                src={
+                  darkMode ? currentProject.logoLight : currentProject.logoDark
+                }
+                alt={currentProject.name}
+                className="h-10 block"
+              />
+            </HoverImageLink>
+          ) : (
+            <HoverTextLink to={currentProject.link}>
+              {currentProject.name}
+            </HoverTextLink>
+          )}
           {formatDateRange(currentProject.startDate, currentProject.endDate)}
         </div>
         <div>
           <span className="font-semibold">Skills: </span>
           <span>{currentProject.skills.join(", ")}</span>
         </div>
-        <Frec />
+        {currentProject.pageContent && <currentProject.pageContent />}
       </div>
     </div>
   );

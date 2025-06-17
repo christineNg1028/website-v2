@@ -20,14 +20,23 @@ export const SoftwareProjects = () => {
           <Card
             key={projectName}
             img={projectDetails.img}
+            alt={projectDetails.name}
             onClick={() => handleClickProject(projectName)}
             className="h-[250px]"
           >
             <div className="h-full flex flex-col justify-between text-xl">
               <div className="flex justify-between flex-wrap">
                 <span>
-                  {projectDetails.logo ? (
-                    <img src={projectDetails.logo} className="h-5" />
+                  {projectDetails.logoLight && projectDetails.logoDark ? (
+                    <img
+                      src={
+                        darkMode
+                          ? projectDetails.logoLight
+                          : projectDetails.logoDark
+                      }
+                      alt={projectDetails.name}
+                      className="h-5"
+                    />
                   ) : (
                     projectDetails.name
                   )}
