@@ -70,7 +70,9 @@ function Project() {
     currentProject.logoLight && currentProject.logoDark ? (
       <HoverImageLink to={currentProject.link}>{content}</HoverImageLink>
     ) : (
-      <HoverTextLink to={currentProject.link}>{content}</HoverTextLink>
+      <HoverTextLink to={currentProject.link} isExternal>
+        {content}
+      </HoverTextLink>
     )
   ) : (
     content

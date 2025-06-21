@@ -2,7 +2,7 @@ import Me from "../../assets/images/me.jpeg";
 import { HoverTextLink } from "../../components/design system/HoverLink";
 import { Links } from "../../Links";
 
-export const Connect = () => {
+export const Contact = () => {
   const linkedinIcon = (
     <svg
       fill="currentColor"
@@ -95,22 +95,22 @@ export const Connect = () => {
           />
         </div>
         <div className="flex flex-col text-xl">
-          <HoverTextLink to={Links.get("LinkedIn") ?? ""}>
+          <HoverTextLink to={Links.get("LinkedIn") ?? ""} isExternal>
             <div className="flex items-center gap-2">
               {linkedinIcon}connect with me
             </div>
           </HoverTextLink>
-          <HoverTextLink to={Links.get("GitHub") ?? ""}>
+          <HoverTextLink to={Links.get("GitHub") ?? ""} isExternal>
             <div className="flex items-center gap-2">
               {githubIcon}code with me
             </div>
           </HoverTextLink>
-          <HoverTextLink to={Links.get("Email") ?? ""}>
+          <HoverTextLink to={Links.get("Email") ?? ""} isExternal>
             <div className="flex items-center gap-2">
               {emailIcon}chat with me
             </div>
           </HoverTextLink>
-          <HoverTextLink to={Links.get("Spotify") ?? ""}>
+          <HoverTextLink to={Links.get("Spotify") ?? ""} isExternal>
             <div className="flex items-center gap-2">
               {spotifyIcon}jam with me
             </div>

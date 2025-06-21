@@ -1,15 +1,30 @@
 import { FC, ReactNode } from "react";
 import { useTheme } from "../../ThemeProvider";
 
-export const HoverTextLink: FC<{ children: ReactNode; to: string }> = ({
+type HoverTextLinkProps = {
+  children: ReactNode;
+  onClick?: () => void;
+  to?: string;
+  isExternal?: boolean;
+};
+
+export const HoverTextLink: FC<HoverTextLinkProps> = ({
   children,
-  to,
+  onClick,
+  to = "#",
+  isExternal = false,
 }) => {
   return (
     <a
       href={to}
-      target="_blank"
-      rel="noopener noreferrer"
+      onClick={(e) => {
+        if (onClick) {
+          e.preventDefault();
+          onClick();
+        }
+      }}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className="w-fit underline underline-offset-8 decoration-dotted decoration-transparent hover:decoration-current transition duration-200 ease-in-out"
     >
       {children}
