@@ -10,8 +10,10 @@ import wealthsimpleChequingImage from "../../assets/images/projects/wealthsimple
 import wealthsimpleLogoLight from "../../assets/graphics/logos/wealthsimple-light.svg";
 import wealthsimpleLogoDark from "../../assets/graphics/logos/wealthsimple-dark.svg";
 import wealthsimpleTaxImage from "../../assets/images/projects/wealthsimple tax/wealthsimple_tax.jpeg";
+import heatImage from "../../assets/images/projects/heat/heat.svg";
 
 import { Frec } from "../project/Frec";
+import { Wonolo } from "../project/Wonolo";
 
 type Project = {
   name: string;
@@ -22,8 +24,8 @@ type Project = {
   startDate: Date;
   endDate: Date;
   skills: string[];
-  tags: ProjectTag[];
-  link: string;
+  tags?: ProjectTag[];
+  link?: string;
   pageContent?: () => JSX.Element;
 };
 
@@ -36,7 +38,7 @@ enum ProjectTag {
   Product = "📝 Product",
 }
 
-export const projects: Record<string, Project> = {
+export const softwareProjects: Record<string, Project> = {
   frec: {
     name: "Frec Direct Indexing",
     logoLight: frecLogoLight,
@@ -76,6 +78,7 @@ export const projects: Record<string, Project> = {
     skills: ["Ruby on Rails", "PostgreSQL"],
     tags: [ProjectTag.Backend],
     link: "https://www.wonolo.com/",
+    pageContent: Wonolo,
   },
   wealthsimpleCash: {
     name: "Wealthsimple Cash",
@@ -102,5 +105,35 @@ export const projects: Record<string, Project> = {
     skills: ["React", "TypeScript", "Redux"],
     tags: [ProjectTag.FullStack],
     link: "https://www.wealthsimple.com/en-ca/tax",
+  },
+};
+
+export const otherProjects: Record<string, Project> = {
+  heat: {
+    name: "HEAT",
+    img: heatImage,
+    description: "Sensor system for detecting urban heat islands",
+    startDate: new Date("2024-09-01"),
+    endDate: new Date("2025-04-01"),
+    skills: ["Hardware", "Firmware", "User Empathy"],
+    link: "https://www.wealthsimple.com/en-ca/tax",
+  },
+  uwblueprint: {
+    name: "UW Blueprint",
+    img: heatImage,
+    description: "Creating tech for social good",
+    startDate: new Date("2021-05-01"),
+    endDate: new Date("2023-04-01"),
+    skills: ["Product Thinking", "Systems Design"],
+    link: "https://uwblueprint.org/",
+  },
+  dotslogistics: {
+    name: "DotsLogistics",
+    img: heatImage,
+    description: "AI for Future Business Challenge 2021",
+    startDate: new Date("2021-01-01"),
+    endDate: new Date("2021-04-01"),
+    skills: ["Product Thinking", "Systems Design"],
+    link: "https://uwblueprint.org/",
   },
 };

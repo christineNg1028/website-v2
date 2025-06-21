@@ -3,6 +3,9 @@ import "../../App.css";
 import { AboutMe } from "./AboutMe";
 import { SoftwareProjects } from "./SoftwareProjects";
 import { Divider } from "../../components/design system/Divider";
+import { OtherProjects } from "./OtherProjects";
+import { Photography } from "./Photography";
+import { Connect } from "./Connect";
 
 function Home() {
   return (
@@ -10,6 +13,12 @@ function Home() {
       <AboutMe />
       <Divider />
       <SoftwareProjects />
+      <Divider />
+      <OtherProjects />
+      <Divider />
+      <Photography />
+      <Divider />
+      <Connect />
     </div>
   );
 }

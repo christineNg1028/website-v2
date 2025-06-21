@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "../../App.css";
 import { useTheme } from "../../ThemeProvider";
 import { useNavigate, useParams } from "react-router";
-import { projects } from "../shared/projects";
+import { otherProjects, softwareProjects } from "../shared/projects";
 import { BackButton } from "../../components/design system/BackButton";
 import {
   HoverImageLink,
@@ -15,14 +15,21 @@ function Project() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!project || !(project in projects)) {
+    if (
+      !project ||
+      (!(project in softwareProjects) && !(project in otherProjects))
+    ) {
       navigate("/", { replace: true });
     }
   }, [project, navigate]);
 
-  if (!project || !(project in projects)) return null;
+  if (
+    !project ||
+    (!(project in softwareProjects) && !(project in otherProjects))
+  )
+    return null;
 
-  const currentProject = projects[project];
+  const currentProject = softwareProjects[project] || otherProjects[project];
 
   const formatDateRange = (startDate: Date, endDate: Date) => {
     const month = [
@@ -48,6 +55,27 @@ function Project() {
     } - ${endMonth} ${endYear}`;
   };
 
+  const content =
+    currentProject.logoLight && currentProject.logoDark ? (
+      <img
+        src={darkMode ? currentProject.logoLight : currentProject.logoDark}
+        alt={currentProject.name}
+        className="h-10 block"
+      />
+    ) : (
+      <span className="text-4xl">{currentProject.name}</span>
+    );
+
+  const projectTitle = currentProject.link ? (
+    currentProject.logoLight && currentProject.logoDark ? (
+      <HoverImageLink to={currentProject.link}>{content}</HoverImageLink>
+    ) : (
+      <HoverTextLink to={currentProject.link}>{content}</HoverTextLink>
+    )
+  ) : (
+    content
+  );
+
   return (
     <div className="flex flex-col w-full max-w-4xl px-4 py-10 gap-12 text-left text-xl">
       <BackButton />
@@ -58,21 +86,7 @@ function Project() {
       />
       <div className="flex flex-col gap-6">
         <div className="flex justify-between">
-          {currentProject.logoLight && currentProject.logoDark ? (
-            <HoverImageLink to={currentProject.link}>
-              <img
-                src={
-                  darkMode ? currentProject.logoLight : currentProject.logoDark
-                }
-                alt={currentProject.name}
-                className="h-10 block"
-              />
-            </HoverImageLink>
-          ) : (
-            <HoverTextLink to={currentProject.link}>
-              {currentProject.name}
-            </HoverTextLink>
-          )}
+          {projectTitle}
           {formatDateRange(currentProject.startDate, currentProject.endDate)}
         </div>
         <div>

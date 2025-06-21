@@ -1,0 +1,95 @@
+import { Divider } from "../../components/design system/Divider";
+import { Banner } from "../../components/design system/Banner";
+import { TextLink } from "../../components/design system/TextLink";
+import { Links } from "../../Links";
+import { List } from "../../components/design system/List";
+
+export const Wonolo = () => {
+  return (
+    <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-6">
+        <div>
+          Wonolo is an on-demand staffing platform featuring a two-sided
+          marketplace that connects businesses with skilled workers, while also
+          empowering individuals to discover flexible income-generating
+          opportunities and acquire valuable new skills.
+        </div>
+        <div>
+          At Wonolo, I was a backend developer on the Backend Services team.
+          This was my first time in a backend role, doing platform-level work
+          rather than feature work. I had the opportunity to contribute to all
+          the major projects my team undertook during the quarter, making a
+          significant impact on the company.
+        </div>
+      </div>
+      <Divider />
+      <div className="flex flex-col gap-10">
+        <span className="text-2xl">⏰ Periodic Jobs</span>
+        <Banner icon={"✨"}>
+          Enhanced system scalability by reducing background job deployments by
+          50% with a new scheduling pattern.
+        </Banner>
+        <div className="flex flex-col gap-6">
+          <div>
+            Wonolo uses{" "}
+            <TextLink to={Links.get("Sidekiq") ?? ""}>Sidekiq</TextLink> to
+            manage background processes. This term, we were upgrading Sidekiq
+            with new features to improve our background processing and workflows
+            within the core platform. The most significant change was the
+            introduction of Periodic Jobs, as we redefined how jobs get
+            scheduled, and I owned this project.
+          </div>
+          <div>
+            Previously, we would register tasks with their cron schedules in a
+            separate task-scheduling repo. Each of these was an endpoint that
+            got hit in the core platform which fired a corresponding worker. See
+            Key Features for the revised process.
+          </div>
+          <div className="font-semibold">Key Features:</div>
+          <List
+            items={[
+              "Config files per env with worker-schedule key-value pairings",
+              "Env var specifies the associated config file and allows Periodic Jobs to be toggled on/off",
+              "File is read and each worker is registered under a schedule in Sidekiq",
+            ]}
+          />
+          <div className="font-semibold">What I learned/accomplished:</div>
+          <List
+            items={[
+              "Deprecated the task scheduling repo and eliminated its maintenance",
+              "Reduced deployments required to schedule a worker from 2 to 1",
+              "Gave a presentation to the engineering org demonstrating the new process",
+              "Simplified the process such that its easier to understand and adopt across the engineering org, saving engineering time over the long run",
+            ]}
+          />
+        </div>
+      </div>
+      <Divider />
+      <div className="flex flex-col gap-10">
+        <span className="text-2xl">Portfolio Analysis 📁</span>
+        <div className="flex flex-col gap-6">
+          <div>
+            Portfolio Analysis was a project designed to give new Frec users a
+            chance to compare their current portfolio with what Frec could
+            offer—specifically, how much they could save in fees if they
+            switched. It also aimed to introduce users to the platform and
+            encourage them to schedule a call with our advisors before fully
+            onboarding. The main goal was to improve conversion from other
+            investment platforms like Charles Schwab and Fidelity.
+          </div>
+          <div>
+            The feature followed a setup flow similar to our main onboarding,
+            but focused on collecting a user’s existing portfolio and scheduling
+            a call, without requiring the full onboarding information upfront.
+          </div>
+          <div>
+            I led this project, working on the initial designs and building out
+            the frontend skeleton for the setup screens. Key learnings included
+            accounting for edge cases in my designs and designing with business
+            goals and priorities in mind.
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

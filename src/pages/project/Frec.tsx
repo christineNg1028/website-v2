@@ -1,5 +1,5 @@
 import { Divider } from "../../components/design system/Divider";
-import { OrderedList } from "../../components/design system/OrderedList";
+import { List } from "../../components/design system/List";
 import InvestPage from "../../assets/images/projects/frec/invest_page.png";
 import InvestPageSearch from "../../assets/images/projects/frec/invest_page_search.png";
 import PortfolioAnalysis from "../../assets/images/projects/frec/portfolio_analysis.png";
@@ -56,7 +56,7 @@ export const Frec = () => {
       </div>
       <Divider />
       <div className="flex flex-col gap-10">
-        <span className="text-2xl">Index Explorer 🫵</span>
+        <span className="text-2xl">🫵 Index Explorer</span>
         <Banner icon={"✨"}>
           Drove $100M in Assets Under Management (AUM) growth
         </Banner>
@@ -69,12 +69,12 @@ export const Frec = () => {
             where users could search for and trade individual stocks.
           </div>
           <div>There were a few problems with this setup:</div>
-          <OrderedList items={problemsList} />
+          <List items={problemsList} isOrdered />
         </div>
         <ImageCarousel images={indexExplorerImages} />
         <div className="flex flex-col gap-6">
           <div>To address these issues, we:</div>
-          <OrderedList items={solutionsList} />
+          <List items={solutionsList} isOrdered />
           <div>
             This was a meaty project with a lot of moving parts and a tight
             deadline. I led the project end-to-end — breaking down product
@@ -106,7 +106,7 @@ export const Frec = () => {
       </div>
       <Divider />
       <div className="flex flex-col gap-10">
-        <span className="text-2xl">Portfolio Analysis 📁</span>
+        <span className="text-2xl">📁 Portfolio Analysis</span>
         <div className="flex flex-col gap-6">
           <div>
             Portfolio Analysis was a project designed to give new Frec users a
