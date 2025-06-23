@@ -7,8 +7,16 @@ import { OtherProjects } from "./OtherProjects";
 import { Photography } from "./Photography";
 import { Contact } from "./Contact";
 import { Nav } from "../../components/Nav";
+import { useCurrentSection } from "../../hooks/useCurrentSection";
 
 function Home() {
+  const currentSection = useCurrentSection([
+    "tldr",
+    "projects",
+    "photos",
+    "contact",
+  ]);
+
   const tldrRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
   const photosRef = useRef<HTMLDivElement>(null);
@@ -17,7 +25,7 @@ function Home() {
   return (
     <>
       <Nav
-        onNavigate={(section: string) => {
+        onNavigate={(section) => {
           const sectionMap: Record<string, React.RefObject<HTMLDivElement>> = {
             tldr: tldrRef,
             projects: projectsRef,
@@ -27,10 +35,11 @@ function Home() {
           const ref = sectionMap[section];
           ref?.current?.scrollIntoView({ behavior: "smooth" });
         }}
+        currentSection={currentSection}
       />
       <div
         ref={tldrRef}
-        id="tl;dr"
+        id="tldr"
         className="flex flex-col w-full max-w-4xl px-4 py-10 gap-12"
       >
         <AboutMe />

@@ -6,6 +6,7 @@ type HoverTextLinkProps = {
   onClick?: () => void;
   to?: string;
   isExternal?: boolean;
+  isActive?: boolean;
 };
 
 export const HoverTextLink: FC<HoverTextLinkProps> = ({
@@ -13,6 +14,7 @@ export const HoverTextLink: FC<HoverTextLinkProps> = ({
   onClick,
   to = "#",
   isExternal = false,
+  isActive = false,
 }) => {
   return (
     <a
@@ -25,7 +27,9 @@ export const HoverTextLink: FC<HoverTextLinkProps> = ({
       }}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
-      className="w-fit underline underline-offset-8 decoration-dotted decoration-transparent hover:decoration-current transition duration-200 ease-in-out"
+      className={`w-fit underline underline-offset-8 decoration-dotted decoration-transparent hover:decoration-current transition duration-200 ease-in-out ${
+        isActive ? "font-semibold" : ""
+      }`}
     >
       {children}
     </a>

@@ -56,7 +56,7 @@ export const Photography = () => {
     <div className="flex flex-col gap-10 text-left">
       <span className="text-2xl">Through my lens</span>
       <div className="flex flex-col gap-6">
-        <HoverTextLink to={Links.get("Photography") ?? ""}>
+        <HoverTextLink to={Links.get("Photography") ?? ""} isExternal>
           <div className="flex items-center gap-2 text-xl">
             {instagramIcon}ng.is.king
           </div>
