@@ -5,6 +5,7 @@ import { ThemeToggle } from "./components/ThemeToggle";
 import Home from "./pages/home/Home";
 import { Route, Routes } from "react-router";
 import Project from "./pages/project/Project";
+import { Footer } from "./components/Footer";
 
 function App() {
   const { darkMode } = useTheme();
@@ -20,6 +21,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path=":project" element={<Project />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

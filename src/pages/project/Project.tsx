@@ -97,6 +97,18 @@ function Project() {
         </div>
         {currentProject.pageContent && <currentProject.pageContent />}
       </div>
+      <div className="text-center text-base">
+        <HoverTextLink
+          onClick={() =>
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            })
+          }
+        >
+          &uarr; Back to top
+        </HoverTextLink>
+      </div>
     </div>
   );
 }
