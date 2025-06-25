@@ -17,7 +17,10 @@ export function Nav({
       </HoverTextLink>
       <HoverTextLink
         onClick={() => onNavigate("projects")}
-        isActive={currentSection === "projects"}
+        isActive={
+          currentSection === "softwareProjects" ||
+          currentSection === "otherProjects"
+        }
       >
         projects
       </HoverTextLink>

@@ -12,7 +12,8 @@ import { useCurrentSection } from "../../hooks/useCurrentSection";
 function Home() {
   const currentSection = useCurrentSection([
     "tldr",
-    "projects",
+    "softwareProjects",
+    "otherProjects",
     "photos",
     "contact",
   ]);
@@ -44,18 +45,24 @@ function Home() {
       >
         <AboutMe />
         <Divider />
-        <div className="flex flex-col gap-12" ref={projectsRef} id="projects">
-          <SoftwareProjects />
-          <Divider />
-          <OtherProjects />
+        <div ref={projectsRef} id="softwareProjects">
+          <SoftwareProjects
+            isCurrentSection={currentSection === "softwareProjects"}
+          />
+        </div>
+        <Divider />
+        <div id="otherProjects">
+          <OtherProjects
+            isCurrentSection={currentSection === "otherProjects"}
+          />
         </div>
         <Divider />
         <div ref={photosRef} id="photos">
-          <Photography />
+          <Photography isCurrentSection={currentSection === "photos"} />
         </div>
         <Divider />
         <div ref={contactRef} id="contact">
-          <Contact />
+          <Contact isCurrentSection={currentSection === "contact"} />
         </div>
       </div>
     </>

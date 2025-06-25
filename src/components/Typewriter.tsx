@@ -6,7 +6,7 @@ import { useTheme } from "../ThemeProvider"; // Assume this hook exists
 export const Typewriter: React.FC = () => {
   const [text, setText] = useState("");
   const [paperPosition, setPaperPosition] = useState(110);
-  const fullText = "Hi! :)\nI'm Christine";
+  const fullText = "Hi!\nI'm Christine";
   const paperRef = useRef<SVGSVGElement>(null);
   const typewriterRef = useRef<SVGSVGElement>(null);
   const { darkMode } = useTheme();

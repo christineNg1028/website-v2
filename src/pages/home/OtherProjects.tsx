@@ -2,9 +2,15 @@ import { useNavigate } from "react-router";
 import { Card } from "../../components/design system/Card";
 import { otherProjects } from "../shared/projects";
 import { Carousel } from "../../components/design system/Carousel";
+import { FC } from "react";
+import { useTheme } from "../../ThemeProvider";
+import { LightBulb1, LightBulb2 } from "../../assets/icons/headerIcons";
 
-export const OtherProjects = () => {
+export const OtherProjects: FC<{ isCurrentSection: boolean }> = ({
+  isCurrentSection,
+}) => {
   const navigate = useNavigate();
+  const { darkMode } = useTheme();
 
   const handleClickProject = (project: string) => {
     navigate(`/${project}`);
@@ -12,7 +18,10 @@ export const OtherProjects = () => {
 
   return (
     <div className="flex flex-col gap-10 text-left">
-      <span className="text-2xl">Built for curiosity</span>
+      <span className="flex gap-3 items-center text-2xl">
+        {isCurrentSection ? LightBulb2(darkMode) : LightBulb1(darkMode)}Built
+        for curiosity
+      </span>
       <Carousel>
         {Object.entries(otherProjects).map(([projectName, projectDetails]) => (
           <Card

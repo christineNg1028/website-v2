@@ -3,8 +3,12 @@ import { Card } from "../../components/design system/Card";
 import { Chip } from "../../components/design system/Chip";
 import { useTheme } from "../../ThemeProvider";
 import { softwareProjects } from "../shared/projects";
+import { FC } from "react";
+import { Smile1, Smile2 } from "../../assets/icons/headerIcons";
 
-export const SoftwareProjects = () => {
+export const SoftwareProjects: FC<{ isCurrentSection: boolean }> = ({
+  isCurrentSection,
+}) => {
   const { darkMode } = useTheme();
   const navigate = useNavigate();
 
@@ -14,7 +18,9 @@ export const SoftwareProjects = () => {
 
   return (
     <div className="flex flex-col gap-10 text-left">
-      <span className="text-2xl">Built for users</span>
+      <span className="flex gap-3 items-center text-2xl">
+        {isCurrentSection ? Smile2(darkMode) : Smile1(darkMode)}Built for users
+      </span>
       <div className="flex flex-col gap-6">
         {Object.entries(softwareProjects).map(
           ([projectName, projectDetails]) => (
