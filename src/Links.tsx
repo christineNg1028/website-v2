@@ -12,4 +12,10 @@ export const Links: Map<string, string> = new Map([
     "Spotify",
     "https://open.spotify.com/user/226qigv3jmw2ffwpuutbbanoq?si=67d9b559f45b4f41",
   ],
+  ["Wealthsimple Tax", "https://www.youtube.com/watch?v=U98s5YGBHtA"],
+  [
+    "Resume",
+    "https://docs.google.com/document/d/1l3v10bKiUmMxBScwaSE9jp7gdXbENDPqt92A2nfkzQI/edit?usp=sharing",
+  ],
+  ["Frec", "https://frec.com/"],
 ]);

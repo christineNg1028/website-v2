@@ -28,7 +28,9 @@ export const SoftwareProjects: FC<{ isCurrentSection: boolean }> = ({
               key={projectName}
               img={projectDetails.img}
               alt={projectDetails.name}
-              onClick={() => handleClickProject(projectName)}
+              {...(projectDetails.pageContent && {
+                onClick: () => handleClickProject(projectName),
+              })}
               className="h-[250px]"
             >
               <div className="p-4 h-full flex flex-col justify-between text-xl">

@@ -29,7 +29,9 @@ export const OtherProjects: FC<{ isCurrentSection: boolean }> = ({
             format="vertical"
             img={projectDetails.img}
             alt={projectDetails.name}
-            onClick={() => handleClickProject(projectName)}
+            {...(projectDetails.pageContent && {
+              onClick: () => handleClickProject(projectName),
+            })}
             className="w-[344px] h-[250px] shrink-0"
           >
             <div className="py-2 px-4 h-full flex flex-col justify-between text-xl">

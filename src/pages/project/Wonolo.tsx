@@ -66,28 +66,76 @@ export const Wonolo = () => {
       </div>
       <Divider />
       <div className="flex flex-col gap-10">
-        <span className="text-2xl">Portfolio Analysis 📁</span>
+        <span className="text-2xl">
+          🚨 Alert for Potentially Fraudulent Payments
+        </span>
+        <Banner icon={"✨"}>
+          Created a Slack alert to detect fraudulent payments, resulting in $30k
+          savings from resolving three fraud cases.
+        </Banner>
+      </div>
+      <Divider />
+      <div className="flex flex-col gap-10">
+        <span className="text-2xl">✏️ PAS Reconciliation</span>
         <div className="flex flex-col gap-6">
           <div>
-            Portfolio Analysis was a project designed to give new Frec users a
-            chance to compare their current portfolio with what Frec could
-            offer—specifically, how much they could save in fees if they
-            switched. It also aimed to introduce users to the platform and
-            encourage them to schedule a call with our advisors before fully
-            onboarding. The main goal was to improve conversion from other
-            investment platforms like Charles Schwab and Fidelity.
+            To record transactions, Wonolo used a legacy accounting system
+            consisting of many types of tables. The goal of the Platform
+            Accounting System (PAS) was to make it easier for engineers and the
+            business to work with and understand the backend platform’s
+            financial data. PAS consists of one table where 2 entries are
+            created per event (debit and credit), and there are specific codes
+            for the different types of events and accounts involved.
           </div>
           <div>
-            The feature followed a setup flow similar to our main onboarding,
-            but focused on collecting a user’s existing portfolio and scheduling
-            a call, without requiring the full onboarding information upfront.
+            For the Reconciliation epic, we needed to ensure that PAS data
+            reconciled with data from the legacy system in order to validate the
+            accuracy of PAS before switching systems.
           </div>
+          <div className="font-semibold">What I learned/accomplished:</div>
+          <List
+            items={[
+              "SQL queries - writing, analyzing data",
+              "Investigated why values didn’t match up",
+              "Identified and fixed bugs in the logic for recording data in PAS",
+              "Completed 38 tickets!",
+            ]}
+          />
+        </div>
+      </div>
+      <Divider />
+      <div className="flex flex-col gap-10">
+        <span className="text-2xl">⬆ Rails 7 Upgrade</span>
+        <div className="flex flex-col gap-6">
           <div>
-            I led this project, working on the initial designs and building out
-            the frontend skeleton for the setup screens. Key learnings included
-            accounting for edge cases in my designs and designing with business
-            goals and priorities in mind.
+            Rails Upgrades was one of the biggest epics of the term. We upgraded
+            from Rails 6 to 7, ensuring identical logic throughout the monolith
+            and introducing new version-specific features.
           </div>
+          <div className="font-semibold">What I learned/accomplished:</div>
+          <List
+            items={[
+              "Unit + E2E testing",
+              "Implemented proof of concept for load_async (multi-threaded queries to speed up latencies)",
+            ]}
+          />
+        </div>
+      </div>
+      <Divider />
+      <div className="flex flex-col gap-10">
+        <span className="text-2xl">🔒 Auth Service Deprecation</span>
+        <div className="flex flex-col gap-6">
+          <div>
+            I deprecated an in-house auth service that was no longer being used.
+          </div>
+          <div className="font-semibold">What I learned/accomplished:</div>
+          <List
+            items={[
+              "Removed dead code + all references to the service (controllers, models, mutations, etc.)",
+              "Wrote migrations",
+              "Deleted the build pipeline",
+            ]}
+          />
         </div>
       </div>
     </div>

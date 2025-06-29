@@ -1,3 +1,4 @@
+import { Links } from "../Links";
 import { HoverTextLink } from "./design system/HoverLink";
 
 export function Nav({
@@ -36,7 +37,9 @@ export function Nav({
       >
         contact
       </HoverTextLink>
-      <HoverTextLink to="/resume.pdf">resume</HoverTextLink>
+      <HoverTextLink to={Links.get("Resume") ?? ""} isExternal>
+        resume
+      </HoverTextLink>
     </nav>
   );
 }

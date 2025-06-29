@@ -1,19 +1,22 @@
-import frecImage from "../../assets/images/projects/frec/frec.png";
+import frecImage from "../../assets/images/projects/frec/frec.svg";
 import frecLogoLight from "../../assets/graphics/logos/frec-light.svg";
 import frecLogoDark from "../../assets/graphics/logos/frec-dark.svg";
-import outschoolImage from "../../assets/images/projects/outschool/outschool.png";
+import outschoolImage from "../../assets/images/projects/outschool/outschool.svg";
 import outschoolLogo from "../../assets/graphics/logos/outschool.svg";
-import wonoloImage from "../../assets/images/projects/wonolo/wonolo.png";
+import wonoloImage from "../../assets/images/projects/wonolo/wonolo.svg";
 import wonoloLogoLight from "../../assets/graphics/logos/wonolo-light.svg";
 import wonoloLogoDark from "../../assets/graphics/logos/wonolo-dark.svg";
 import wealthsimpleChequingImage from "../../assets/images/projects/wealthsimple cash/wealthsimple_chequing.png";
 import wealthsimpleLogoLight from "../../assets/graphics/logos/wealthsimple-light.svg";
 import wealthsimpleLogoDark from "../../assets/graphics/logos/wealthsimple-dark.svg";
-import wealthsimpleTaxImage from "../../assets/images/projects/wealthsimple tax/wealthsimple_tax.jpeg";
+import wealthsimpleTaxImage from "../../assets/images/projects/wealthsimple tax/wealthsimple_tax.svg";
 import heatImage from "../../assets/images/projects/heat/heat.svg";
 
 import { Frec } from "../project/Frec";
 import { Wonolo } from "../project/Wonolo";
+import { WealthsimpleCash } from "../project/WealthsimpleCash";
+import { WealthsimpleTax } from "../project/WealthsimpleTax";
+import { Outschool } from "../project/Outschool";
 
 type Project = {
   name: string;
@@ -65,6 +68,7 @@ export const softwareProjects: Record<string, Project> = {
     skills: ["React", "TypeScript", "GraphQL", "PostgreSQL"],
     tags: [ProjectTag.Frontend, ProjectTag.UxResearch],
     link: "https://outschool.com/",
+    pageContent: Outschool,
   },
   wonolo: {
     name: "Wonolo",
@@ -92,6 +96,7 @@ export const softwareProjects: Record<string, Project> = {
     skills: ["Ruby on Rails", "REST", "GraphQL", "PostgreSQL"],
     tags: [ProjectTag.Backend, ProjectTag.Product],
     link: "https://www.wealthsimple.com/en-ca/chequing",
+    pageContent: WealthsimpleCash,
   },
   wealthsimpleTax: {
     name: "Wealthsimple Tax",
@@ -105,6 +110,7 @@ export const softwareProjects: Record<string, Project> = {
     skills: ["React", "TypeScript", "Redux"],
     tags: [ProjectTag.FullStack],
     link: "https://www.wealthsimple.com/en-ca/tax",
+    pageContent: WealthsimpleTax,
   },
 };
 
@@ -118,7 +124,16 @@ export const otherProjects: Record<string, Project> = {
     skills: ["Hardware", "Firmware", "User Empathy"],
     link: "https://www.wealthsimple.com/en-ca/tax",
   },
-  uwblueprint: {
+  travelRex: {
+    name: "TravelRex",
+    img: heatImage,
+    description: "Social cataloging app for travel",
+    startDate: new Date("2024-02-01"),
+    endDate: new Date("2024-05-01"),
+    skills: ["Product Thinking", "Systems Design"],
+    link: "https://uwblueprint.org/",
+  },
+  uwBlueprint: {
     name: "UW Blueprint",
     img: heatImage,
     description: "Creating tech for social good",
@@ -127,7 +142,7 @@ export const otherProjects: Record<string, Project> = {
     skills: ["Product Thinking", "Systems Design"],
     link: "https://uwblueprint.org/",
   },
-  dotslogistics: {
+  dotsLogistics: {
     name: "DotsLogistics",
     img: heatImage,
     description: "AI for Future Business Challenge 2021",
