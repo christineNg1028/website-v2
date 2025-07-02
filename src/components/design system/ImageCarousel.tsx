@@ -3,6 +3,7 @@ import { FC, useState } from "react";
 type CarouselImage = {
   src: string;
   caption?: string;
+  width?: string;
 };
 
 interface ImageCarouselProps {
@@ -19,11 +20,12 @@ export const ImageCarousel: FC<ImageCarouselProps> = ({ images }) => {
 
   return (
     <div className="relative flex flex-col group w-full">
-      <div className="relative w-full overflow-hidden rounded-xl">
+      <div className="relative w-full overflow-hidden">
         <img
+          width={images[current].width ?? "100%"}
           src={images[current].src}
           alt={images[current].caption}
-          className="w-full h-full object-cover transition-opacity duration-300 ease-in-out"
+          className="block mx-auto object-cover rounded-xl transition-opacity duration-300 ease-in-out"
         />
         {hasMultipleImages && (
           <>

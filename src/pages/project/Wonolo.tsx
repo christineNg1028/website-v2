@@ -103,41 +103,6 @@ export const Wonolo = () => {
           />
         </div>
       </div>
-      <Divider />
-      <div className="flex flex-col gap-10">
-        <span className="text-2xl">⬆ Rails 7 Upgrade</span>
-        <div className="flex flex-col gap-6">
-          <div>
-            Rails Upgrades was one of the biggest epics of the term. We upgraded
-            from Rails 6 to 7, ensuring identical logic throughout the monolith
-            and introducing new version-specific features.
-          </div>
-          <div className="font-semibold">What I learned/accomplished:</div>
-          <List
-            items={[
-              "Unit + E2E testing",
-              "Implemented proof of concept for load_async (multi-threaded queries to speed up latencies)",
-            ]}
-          />
-        </div>
-      </div>
-      <Divider />
-      <div className="flex flex-col gap-10">
-        <span className="text-2xl">🔒 Auth Service Deprecation</span>
-        <div className="flex flex-col gap-6">
-          <div>
-            I deprecated an in-house auth service that was no longer being used.
-          </div>
-          <div className="font-semibold">What I learned/accomplished:</div>
-          <List
-            items={[
-              "Removed dead code + all references to the service (controllers, models, mutations, etc.)",
-              "Wrote migrations",
-              "Deleted the build pipeline",
-            ]}
-          />
-        </div>
-      </div>
     </div>
   );
 };

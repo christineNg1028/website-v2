@@ -89,7 +89,9 @@ function Project() {
       <div className="flex flex-col gap-6">
         <div className="flex justify-between">
           {projectTitle}
-          {formatDateRange(currentProject.startDate, currentProject.endDate)}
+          {currentProject.startDate &&
+            currentProject.endDate &&
+            formatDateRange(currentProject.startDate, currentProject.endDate)}
         </div>
         <div>
           <span className="font-semibold">Skills: </span>

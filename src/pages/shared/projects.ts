@@ -11,12 +11,21 @@ import wealthsimpleLogoLight from "../../assets/graphics/logos/wealthsimple-ligh
 import wealthsimpleLogoDark from "../../assets/graphics/logos/wealthsimple-dark.svg";
 import wealthsimpleTaxImage from "../../assets/images/projects/wealthsimple tax/wealthsimple_tax.svg";
 import heatImage from "../../assets/images/projects/heat/heat.svg";
+import cottageImage from "../../assets/images/projects/cottage/interiordesign.png";
+import travelRexImage from "../../assets/images/projects/travelrex/travelrex.svg";
+import dotsLogisticsImage from "../../assets/images/projects/dotslogistics/dotslogistics.png";
+import uwBlueprintImage from "../../assets/images/projects/uwblueprint/uwblueprint.png";
 
 import { Frec } from "../project/Frec";
 import { Wonolo } from "../project/Wonolo";
 import { WealthsimpleCash } from "../project/WealthsimpleCash";
 import { WealthsimpleTax } from "../project/WealthsimpleTax";
 import { Outschool } from "../project/Outschool";
+import { Cottage } from "../project/Cottage";
+import { TravelRex } from "../project/TravelRex";
+import { DotsLogistics } from "../project/DotsLogistics";
+import { UwBlueprint } from "../project/UwBlueprint";
+import { Heat } from "../project/Heat";
 
 type Project = {
   name: string;
@@ -24,8 +33,8 @@ type Project = {
   logoDark?: string;
   img: string;
   description: string;
-  startDate: Date;
-  endDate: Date;
+  startDate?: Date;
+  endDate?: Date;
   skills: string[];
   tags?: ProjectTag[];
   link?: string;
@@ -121,34 +130,56 @@ export const otherProjects: Record<string, Project> = {
     description: "Sensor system for detecting urban heat islands",
     startDate: new Date("2024-09-01"),
     endDate: new Date("2025-04-01"),
-    skills: ["Hardware", "Firmware", "User Empathy"],
-    link: "https://www.wealthsimple.com/en-ca/tax",
+    skills: [
+      "Embedded Systems (Arduino)",
+      "CAD",
+      "3D Printing",
+      "User Empathy",
+    ],
+    pageContent: Heat,
   },
   travelRex: {
     name: "TravelRex",
-    img: heatImage,
+    img: travelRexImage,
     description: "Social cataloging app for travel",
     startDate: new Date("2024-02-01"),
     endDate: new Date("2024-05-01"),
-    skills: ["Product Thinking", "Systems Design"],
-    link: "https://uwblueprint.org/",
+    skills: ["Android", "Java", "Google Maps API", "Firebase"],
+    link: "https://www.youtube.com/watch?v=n_xwbheh2H0",
+    pageContent: TravelRex,
   },
   uwBlueprint: {
     name: "UW Blueprint",
-    img: heatImage,
+    img: uwBlueprintImage,
     description: "Creating tech for social good",
     startDate: new Date("2021-05-01"),
     endDate: new Date("2023-04-01"),
-    skills: ["Product Thinking", "Systems Design"],
+    skills: [
+      "Product Thinking",
+      "React",
+      "TypeScript",
+      "Next.js",
+      "REST",
+      "MongoDB",
+    ],
     link: "https://uwblueprint.org/",
+    pageContent: UwBlueprint,
   },
   dotsLogistics: {
     name: "DotsLogistics",
-    img: heatImage,
-    description: "AI for Future Business Challenge 2021",
+    img: dotsLogisticsImage,
+    description: "🥈 AI for Future Business Challenge 2021",
     startDate: new Date("2021-01-01"),
     endDate: new Date("2021-04-01"),
-    skills: ["Product Thinking", "Systems Design"],
-    link: "https://uwblueprint.org/",
+    skills: ["React"],
+    link: "https://github.com/JuliaLWang8/DotsLogistics",
+    pageContent: DotsLogistics,
+  },
+  cottage: {
+    name: "Cottage Interior Design",
+    img: cottageImage,
+    description: "A rustic, cozy cottage modelled using Maya",
+    skills: ["Autodesk Maya"],
+    pageContent: Cottage,
   },
 };

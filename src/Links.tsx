@@ -18,4 +18,23 @@ export const Links: Map<string, string> = new Map([
     "https://docs.google.com/document/d/1l3v10bKiUmMxBScwaSE9jp7gdXbENDPqt92A2nfkzQI/edit?usp=sharing",
   ],
   ["Frec", "https://frec.com/"],
+  [
+    "DotsLogistics Proposal",
+    "https://github.com/JuliaLWang8/DotsLogistics/blob/main/DotsLogistics%20Platform%20Proposal.pdf",
+  ],
+  [
+    "DotsLogistics Pitch",
+    "https://drive.google.com/file/d/1RhCOv0e4s4cLJpbwAugQ3CnrkDFJsrPD/view",
+  ],
+  [
+    "DotsLogistics Final",
+    "https://www.agorize.com/en/challenges/ai-for-future-business-challenge/pages/the-final?lang=en",
+  ],
+  ["HeadsUpGuys", "https://headsupguys.org/"],
+  ["Feeding Canadian Kids", "https://feedingcanadiankids.org/"],
+  [
+    "HEAT User Manual",
+    "https://drive.google.com/file/d/1PTBUNzTFqdPHJ0pu9_OaUVS7z_cXamkr/view?usp=sharing",
+  ],
+  ["HEAT Setup Tutorial", "https://youtu.be/-IDCzK-IWvg"],
 ]);
