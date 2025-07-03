@@ -34,7 +34,7 @@ export const SoftwareProjects: FC<{ isCurrentSection: boolean }> = ({
               className="h-[250px]"
             >
               <div className="p-4 h-full flex flex-col justify-between text-xl">
-                <div className="flex justify-between flex-wrap">
+                <div className="flex justify-between items-center flex-wrap">
                   <span>
                     {projectDetails.logoLight && projectDetails.logoDark ? (
                       <img
@@ -56,7 +56,9 @@ export const SoftwareProjects: FC<{ isCurrentSection: boolean }> = ({
                     ))}
                   </div>
                 </div>
-                <div>{projectDetails.description}</div>
+                <div className="text-base md:text-xl">
+                  {projectDetails.description}
+                </div>
               </div>
             </Card>
           )

@@ -113,7 +113,7 @@ export const softwareProjects: Record<string, Project> = {
     logoDark: wealthsimpleLogoDark,
     img: wealthsimpleTaxImage,
     description:
-      "Improved first-time tax filer conversion from 50-55% to 60% by revamping the onboarding flow with a state machine pattern, benefiting 1.3 million clients during the 2022 tax season.",
+      "Improved first-time tax filer conversion from 55% to 60% by redesigning the onboarding flow, impacting 1.3M+ users during the 2022 tax season.",
     startDate: new Date("2021-09-01"),
     endDate: new Date("2021-12-01"),
     skills: ["React", "TypeScript", "Redux"],

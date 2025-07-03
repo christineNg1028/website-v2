@@ -9,7 +9,7 @@ export function Nav({
   currentSection: string;
 }) {
   return (
-    <nav className="fixed right-4 top-24 z-50 flex flex-col items-end gap-4 text-xl">
+    <nav className="invisible lg:visible fixed right-4 top-24 z-50 flex flex-col items-end gap-4 text-xl">
       <HoverTextLink
         onClick={() => onNavigate("tldr")}
         isActive={currentSection === "tldr"}

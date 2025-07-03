@@ -24,12 +24,11 @@ export const Photography: FC<{ isCurrentSection: boolean }> = ({
         <script src="https://snapwidget.com/js/snapwidget.js"></script>
         <iframe
           src="https://snapwidget.com/embed/1100245"
-          className="snapwidget-widget pointer-events-none"
+          className="h-[405px] md:h-[870px] snapwidget-widget pointer-events-none"
           style={{
             border: "none",
             overflow: "hidden",
             width: "100%",
-            height: "870px",
           }}
           title="Posts from Instagram"
         ></iframe>
